@@ -1,0 +1,201 @@
+/*
+ * Light 2026 colors for Markdown Preview.
+ * Values are extracted from VS Code's built-in "2026 Light" theme
+ * (extensions/theme-defaults/themes/2026-light.json) and intentionally do not
+ * reference --vscode-* variables, so the preview stays light under dark themes.
+ */
+:root {
+  --mdp-bg: #ffffff;
+  --mdp-fg: #202020;
+  --mdp-muted: #606060;
+  --mdp-link: #0069cc;
+  --mdp-code-bg: #eaeaea;
+  --mdp-quote-bg: #eaeaea;
+  --mdp-quote-border: #c8c8cc;
+  --mdp-border: #e2e2e5;
+  --mdp-separator: #eeeeee;
+  --mdp-table-head-bg: #fafafd;
+  --mdp-selection: #0069cc40;
+  --mdp-mermaid-node-bg: #f3f3f6;
+  --mdp-mermaid-line: #404040;
+  color-scheme: light;
+}
+
+html,
+body,
+body.vscode-body,
+body.vscode-dark,
+body.vscode-high-contrast {
+  background-color: var(--mdp-bg);
+  color: var(--mdp-fg);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--mdp-fg);
+}
+
+html body.vscode-body h1,
+html body.vscode-body h2 {
+  border-bottom-color: var(--mdp-border);
+}
+
+html body.vscode-body hr {
+  border-color: var(--mdp-separator);
+}
+
+a,
+a code {
+  color: var(--mdp-link);
+}
+
+a:hover,
+a:active {
+  color: var(--mdp-link);
+}
+
+::selection {
+  background-color: var(--mdp-selection);
+}
+
+code {
+  color: var(--mdp-fg);
+  background-color: var(--mdp-code-bg);
+}
+
+pre,
+pre code {
+  color: var(--mdp-fg);
+}
+
+pre {
+  background-color: var(--mdp-code-bg);
+}
+
+pre.hljs code > div {
+  background-color: transparent;
+}
+
+/* Syntax highlighting: light token colors from the 2026 Light theme */
+html body.vscode-body pre :is(.hljs, .hljs-subst, .hljs-variable, .hljs-params, .hljs-function, .hljs-class) {
+  color: #1f2328;
+}
+
+html body.vscode-body pre :is(.hljs-comment, .hljs-quote) {
+  color: #6e7781;
+}
+
+html body.vscode-body pre :is(.hljs-keyword, .hljs-selector-tag, .hljs-meta .hljs-keyword, .hljs-formula, .hljs-literal, .hljs-doctag, .hljs-deletion) {
+  color: #cf222e;
+}
+
+html body.vscode-body pre :is(.hljs-string, .hljs-regexp, .hljs-meta .hljs-string, .hljs-addition) {
+  color: #0a3069;
+}
+
+html body.vscode-body pre :is(.hljs-number, .hljs-attr, .hljs-attribute, .hljs-built_in, .hljs-builtin-name, .hljs-class .hljs-title, .hljs-type, .hljs-selector-attr, .hljs-selector-class, .hljs-selector-id) {
+  color: #0550ae;
+}
+
+html body.vscode-body pre :is(.hljs-title, .hljs-section, .hljs-function .hljs-title, .hljs-name, .hljs-tag, .hljs-selector-pseudo) {
+  color: #8250df;
+}
+
+html body.vscode-body pre :is(.hljs-symbol, .hljs-bullet, .hljs-link, .hljs-meta, .hljs-template-variable) {
+  color: #953800;
+}
+
+blockquote {
+  background: var(--mdp-quote-bg);
+  border-color: var(--mdp-quote-border);
+  color: var(--mdp-fg);
+}
+
+html body.vscode-body table {
+  border-color: var(--mdp-border);
+}
+
+html body.vscode-body th {
+  background-color: var(--mdp-table-head-bg);
+  border-bottom-color: var(--mdp-border);
+}
+
+html body.vscode-body th,
+html body.vscode-body td {
+  border-color: var(--mdp-border);
+}
+
+img {
+  background-color: transparent;
+}
+
+/*
+ * Mermaid
+ * The diagram container gets a light background. Only elements that Mermaid
+ * colors by theme default are overridden; nodes with an explicit `fill`
+ * (classDef / style) keep their own colors.
+ */
+.mermaid,
+pre.mermaid {
+  background-color: var(--mdp-bg);
+  color: var(--mdp-fg);
+}
+
+.mermaid svg {
+  background-color: var(--mdp-bg);
+}
+
+.mermaid :is(.edgePath .path, .flowchart-link, .messageLine0, .messageLine1, .relation, .transition) {
+  stroke: var(--mdp-mermaid-line) !important;
+}
+
+.mermaid :is(.arrowheadPath, .marker, marker path) {
+  fill: var(--mdp-mermaid-line) !important;
+  stroke: var(--mdp-mermaid-line) !important;
+}
+
+.mermaid .edgeLabel,
+.mermaid .edgeLabel :is(span, p, div) {
+  background-color: var(--mdp-bg) !important;
+  color: var(--mdp-fg) !important;
+}
+
+.mermaid .edgeLabel rect {
+  fill: var(--mdp-bg) !important;
+}
+
+.mermaid .node:not(:has([style*="fill"])) :is(rect, polygon, circle, ellipse, path) {
+  fill: var(--mdp-mermaid-node-bg) !important;
+  stroke: var(--mdp-muted) !important;
+}
+
+.mermaid .node:not(:has([style*="fill"])):not(:has([style*="color"])) :is(.label, .nodeLabel, span, p, div, text, tspan) {
+  color: var(--mdp-fg) !important;
+  fill: var(--mdp-fg) !important;
+}
+
+.mermaid .cluster > :is(rect, polygon):not([style*="fill"]) {
+  fill: var(--mdp-bg) !important;
+  stroke: var(--mdp-muted) !important;
+}
+
+.mermaid :is(.cluster-label, .cluster-label span, .cluster-label text) {
+  color: var(--mdp-fg) !important;
+  fill: var(--mdp-fg) !important;
+}
+
+/* Sequence diagrams: generated SVG id rules need !important to be overridden */
+.mermaid :is(text.actor, .actor tspan, .messageText, .labelText, .labelText tspan, .loopText, .loopText tspan, .noteText, .noteText tspan) {
+  fill: var(--mdp-fg) !important;
+  color: var(--mdp-fg) !important;
+}
+
+.mermaid :is(.actor-line, .loopLine) {
+  stroke: var(--mdp-muted) !important;
+}
+
+.mermaid rect.actor:not([style*="fill"]),
+.mermaid rect.labelBox:not([style*="fill"]),
+.mermaid .note:not([style*="fill"]) {
+  fill: var(--mdp-mermaid-node-bg) !important;
+  stroke: var(--mdp-muted) !important;
+}

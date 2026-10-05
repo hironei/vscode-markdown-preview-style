@@ -1,0 +1,28 @@
+{
+  "name": "vscode-markdown-preview-style",
+  "displayName": "Markdown Preview Light 2026 Style",
+  "description": "Applies Light 2026 colors to Markdown Preview in every workspace, independent of the VS Code theme.",
+  "version": "0.0.1",
+  "publisher": "hironei",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hironei/vscode-markdown-preview-style.git"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ],
+  "contributes": {
+    "markdown.previewStyles": [
+      "./style.css"
+    ]
+  }
+}
