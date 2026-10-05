@@ -1,0 +1,138 @@
+/*
+ * Light 2026 colors for Markdown Preview.
+ * Values are extracted from VS Code's built-in "2026 Light" theme
+ * (extensions/theme-defaults/themes/2026-light.json) and intentionally do not
+ * reference --vscode-* variables, so the preview stays light under dark themes.
+ */
+:root {
+  --mdp-bg: #ffffff;
+  --mdp-fg: #202020;
+  --mdp-link: #0069cc;
+  --mdp-code-bg: #eaeaea;
+  --mdp-quote-bg: #eaeaea;
+  --mdp-quote-border: #c8c8cc;
+  --mdp-border: #e2e2e5;
+  --mdp-separator: #eeeeee;
+  --mdp-table-head-bg: #fafafd;
+  --mdp-selection: #0069cc40;
+  color-scheme: light;
+}
+
+html,
+body,
+body.vscode-body,
+body.vscode-dark,
+body.vscode-high-contrast {
+  background-color: var(--mdp-bg);
+  color: var(--mdp-fg);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--mdp-fg);
+}
+
+html body.vscode-body h1,
+html body.vscode-body h2 {
+  border-bottom-color: var(--mdp-border);
+}
+
+html body.vscode-body hr {
+  border-color: var(--mdp-separator);
+}
+
+a,
+a code {
+  color: var(--mdp-link);
+}
+
+a:hover,
+a:active {
+  color: var(--mdp-link);
+}
+
+::selection {
+  background-color: var(--mdp-selection);
+}
+
+code {
+  color: var(--mdp-fg);
+  background-color: var(--mdp-code-bg);
+}
+
+pre,
+pre code {
+  color: var(--mdp-fg);
+}
+
+pre {
+  background-color: var(--mdp-code-bg);
+}
+
+pre.hljs code > div {
+  background-color: transparent;
+}
+
+/* Syntax highlighting: light token colors from the 2026 Light theme */
+html body.vscode-body pre :is(.hljs, .hljs-subst, .hljs-variable, .hljs-params, .hljs-function, .hljs-class) {
+  color: #1f2328;
+}
+
+html body.vscode-body pre :is(.hljs-comment, .hljs-quote) {
+  color: #6e7781;
+}
+
+html body.vscode-body pre :is(.hljs-keyword, .hljs-selector-tag, .hljs-meta .hljs-keyword, .hljs-formula, .hljs-literal, .hljs-doctag, .hljs-deletion) {
+  color: #cf222e;
+}
+
+html body.vscode-body pre :is(.hljs-string, .hljs-regexp, .hljs-meta .hljs-string, .hljs-addition) {
+  color: #0a3069;
+}
+
+html body.vscode-body pre :is(.hljs-number, .hljs-attr, .hljs-attribute, .hljs-built_in, .hljs-builtin-name, .hljs-class .hljs-title, .hljs-type, .hljs-selector-attr, .hljs-selector-class, .hljs-selector-id) {
+  color: #0550ae;
+}
+
+html body.vscode-body pre :is(.hljs-title, .hljs-section, .hljs-function .hljs-title, .hljs-name, .hljs-tag, .hljs-selector-pseudo) {
+  color: #8250df;
+}
+
+html body.vscode-body pre :is(.hljs-symbol, .hljs-bullet, .hljs-link, .hljs-meta, .hljs-template-variable) {
+  color: #953800;
+}
+
+blockquote {
+  background: var(--mdp-quote-bg);
+  border-color: var(--mdp-quote-border);
+  color: var(--mdp-fg);
+}
+
+html body.vscode-body table {
+  border-color: var(--mdp-border);
+}
+
+html body.vscode-body th {
+  background-color: var(--mdp-table-head-bg);
+  border-bottom-color: var(--mdp-border);
+}
+
+html body.vscode-body th,
+html body.vscode-body td {
+  border-color: var(--mdp-border);
+}
+
+img {
+  background-color: transparent;
+}
+
+/*
+ * Mermaid
+ * Only the diagram background is made light. Colors, lines and text are left to
+ * Mermaid itself; set "markdown-mermaid.lightModeTheme" and
+ * "markdown-mermaid.darkModeTheme" to "neutral" so both render for a light page.
+ */
+.mermaid,
+pre.mermaid,
+.mermaid svg {
+  background-color: var(--mdp-bg);
+}

@@ -1,0 +1,9 @@
+.orca/**
+.claude/**
+.codex/**
+.git/**
+.github/**
+artifact/**
+publish.bat
+.gitignore
+.vscodeignore

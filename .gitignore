@@ -147,3 +147,11 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Orca / agent working metadata
+.orca/
+.claude/
+.codex/
+
+# Release output
+/artifact/
