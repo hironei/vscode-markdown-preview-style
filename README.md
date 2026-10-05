@@ -11,3 +11,15 @@ This extension only gives Mermaid diagrams a light background. Their colors are 
   "markdown-mermaid.darkModeTheme": "neutral"
 }
 ```
+
+## Install from a VSIX
+
+Run `publish.bat` to build the release package. It creates the following files in `artifact/`:
+
+```text
+artifact/
+├─ vscode-markdown-preview-style-v<version>.vsix
+└─ install.cmd
+```
+
+Run `install.cmd` (copied from `scripts/install.cmd`) to install or update the extension with `code --install-extension --force`, then reload VS Code windows. It requires the `code` command on `PATH` and exactly one `vscode-markdown-preview-style-v*.vsix` next to it.
