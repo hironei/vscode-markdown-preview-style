@@ -3,7 +3,8 @@ setlocal EnableExtensions
 rem Build the release package: clean -> package (.vsix) -> artifact\.
 rem This script does not run any Git or GitHub operation.
 
-pushd "%~dp0" || exit /b 1
+set "ROOT_DIR=%~dp0"
+pushd "%ROOT_DIR%" || exit /b 1
 
 set "OUT_DIR=%CD%\artifact"
 
@@ -58,6 +59,19 @@ if not exist "%VSIX%" (
   exit /b 1
 )
 
+copy /y "%ROOT_DIR%scripts\install.cmd" "%OUT_DIR%\install.cmd" >nul
+if errorlevel 1 (
+  echo ERROR: failed to copy scripts\install.cmd to "%OUT_DIR%".
+  popd
+  exit /b 1
+)
+if not exist "%OUT_DIR%\install.cmd" (
+  echo ERROR: "%OUT_DIR%\install.cmd" was not created.
+  popd
+  exit /b 1
+)
+
 echo Created: %VSIX%
+echo Created: %OUT_DIR%\install.cmd
 popd
 exit /b 0
