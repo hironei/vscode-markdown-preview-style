@@ -7,7 +7,6 @@
 :root {
   --mdp-bg: #ffffff;
   --mdp-fg: #202020;
-  --mdp-muted: #606060;
   --mdp-link: #0069cc;
   --mdp-code-bg: #eaeaea;
   --mdp-quote-bg: #eaeaea;
@@ -16,8 +15,6 @@
   --mdp-separator: #eeeeee;
   --mdp-table-head-bg: #fafafd;
   --mdp-selection: #0069cc40;
-  --mdp-mermaid-node-bg: #f3f3f6;
-  --mdp-mermaid-line: #404040;
   color-scheme: light;
 }
 
@@ -130,72 +127,12 @@ img {
 
 /*
  * Mermaid
- * The diagram container gets a light background. Only elements that Mermaid
- * colors by theme default are overridden; nodes with an explicit `fill`
- * (classDef / style) keep their own colors.
+ * Only the diagram background is made light. Colors, lines and text are left to
+ * Mermaid itself; set "markdown-mermaid.lightModeTheme" and
+ * "markdown-mermaid.darkModeTheme" to "neutral" so both render for a light page.
  */
 .mermaid,
-pre.mermaid {
-  background-color: var(--mdp-bg);
-  color: var(--mdp-fg);
-}
-
+pre.mermaid,
 .mermaid svg {
   background-color: var(--mdp-bg);
-}
-
-.mermaid :is(.edgePath .path, .flowchart-link, .messageLine0, .messageLine1, .relation, .transition) {
-  stroke: var(--mdp-mermaid-line) !important;
-}
-
-.mermaid :is(.arrowheadPath, .marker, marker path) {
-  fill: var(--mdp-mermaid-line) !important;
-  stroke: var(--mdp-mermaid-line) !important;
-}
-
-.mermaid .edgeLabel,
-.mermaid .edgeLabel :is(span, p, div) {
-  background-color: var(--mdp-bg) !important;
-  color: var(--mdp-fg) !important;
-}
-
-.mermaid .edgeLabel rect {
-  fill: var(--mdp-bg) !important;
-}
-
-.mermaid .node:not(:has([style*="fill"])) :is(rect, polygon, circle, ellipse, path) {
-  fill: var(--mdp-mermaid-node-bg) !important;
-  stroke: var(--mdp-muted) !important;
-}
-
-.mermaid .node:not(:has([style*="fill"])):not(:has([style*="color"])) :is(.label, .nodeLabel, span, p, div, text, tspan) {
-  color: var(--mdp-fg) !important;
-  fill: var(--mdp-fg) !important;
-}
-
-.mermaid .cluster > :is(rect, polygon):not([style*="fill"]) {
-  fill: var(--mdp-bg) !important;
-  stroke: var(--mdp-muted) !important;
-}
-
-.mermaid :is(.cluster-label, .cluster-label span, .cluster-label text) {
-  color: var(--mdp-fg) !important;
-  fill: var(--mdp-fg) !important;
-}
-
-/* Sequence diagrams: generated SVG id rules need !important to be overridden */
-.mermaid :is(text.actor, .actor tspan, .messageText, .labelText, .labelText tspan, .loopText, .loopText tspan, .noteText, .noteText tspan) {
-  fill: var(--mdp-fg) !important;
-  color: var(--mdp-fg) !important;
-}
-
-.mermaid :is(.actor-line, .loopLine) {
-  stroke: var(--mdp-muted) !important;
-}
-
-.mermaid rect.actor:not([style*="fill"]),
-.mermaid rect.labelBox:not([style*="fill"]),
-.mermaid .note:not([style*="fill"]) {
-  fill: var(--mdp-mermaid-node-bg) !important;
-  stroke: var(--mdp-muted) !important;
 }
